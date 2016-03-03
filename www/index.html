@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>F Brognara</title>
+
+    <link href="lib/ionic/css/ionic.css?ionicCachebuster=87740" rel="stylesheet">
+    <link href="css/style.css?ionicCachebuster=87740" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js?ionicCachebuster=87740"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js?ionicCachebuster=87740"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js?ionicCachebuster=87740"></script>
+    
+   
+  </head>
+  
+  <body ng-app="starter" ng-controller="CtrlTarefa">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable bar-dark">
+       <button class="button button-icon" ng-click="">
+          <i class="ion-navicon-round light"></i>
+        </button>
+             <h1 class="title" color="white"> Brognara's Tasks </h1>
+       <button class="button button-icon" ng-click="novaTarefa()">
+          <i class="ion-compose icon"></i>
+        </button>
+      </ion-header-bar>
+      <ion-content>
+        
+       
+        
+        
+        <ion-list>
+        	<ion-item ng-repeat="tarefa in tarefas" class="item-icon-right" ng-class="{completa: tarefa.completa}" ng-click="tarefa.completa = !tarefa.completa">
+        	   
+        	  <i class="ion-checkmark-circled icone"></i> {{ tarefa.titulo}}
+        	  
+        	  
+        	  <i class="icon ion-ios-arrow-left"></i>
+            <ion-option-button class="button-assertive" ng-click="tarefas.splice($index, 1)">
+              Delete
+            </ion-option-button>
+
+            <ion-option-button class="button-energized" ng-click="editar(tarefa)">
+                          Editar
+                        </ion-option-button>
+        	  
+        	  
+        	  
+        	 
+        	</ion-item>
+        </ion-list>
+        
+        
+        <div class="card">
+          <div class="item item-text-wrap">
+            <i class="ion-university"> 1 - Deslize a seta < para a esquerda <br>
+            para editar ou excluir uma tarefa <br> </i> <br>
+            
+            <i class="ion-ribbon-b"> 2 - Clique em uma tarefa para marcá-la <br> </i>
+            
+            
+            
+          </div>
+        </div>
+       
+
+
+        
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
